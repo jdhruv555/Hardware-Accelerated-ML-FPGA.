@@ -1,0 +1,22 @@
+module ALU(
+input [7:0] x, y,
+output reg [15:0] z,
+input [1:0] opt
+);
+parameter ADD=2'b00;
+parameter SUB=2'b01;
+parameter MUL=2'b10;
+parameter DIV=2'b11;
+
+always @(*)
+begin
+    case(opt)
+        ADD:z=x+y;
+        SUB:z=x-y;
+        MUL:z=x*y;
+        DIV:z=x/y;
+    endcase
+end
+
+endmodule
+

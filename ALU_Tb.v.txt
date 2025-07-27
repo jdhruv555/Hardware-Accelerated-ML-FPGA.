@@ -1,0 +1,25 @@
+
+module ALU_tb;
+
+reg [7:0] x, y;
+reg [1:0] opt;
+wire [15:0] z;
+
+ALU DUT (.x(x), .y(y), .opt(opt), .z(z));
+
+initial begin
+    x = 8'b01101010; // x = 106 in decimal
+    y = 8'b00011011; // y = 27 in decimal
+    opt = 2'b01;
+    #10;
+    opt = 2'b00;
+    #10;
+    opt = 2'b11;
+    #10;
+    opt = 2'b10;
+    #10; // Add a delay to allow simulation to finish
+end
+
+initial #200 $finish;
+
+endmodule
